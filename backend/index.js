@@ -19,7 +19,16 @@ try{
 
 // Routing Middleware
  app.use(express.json())
- app.use(cors())
+ //app.use(cors())
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://notetaking-a.netlify.app"
+  ],
+  credentials: true
+}))
+
  app.use("/api/v1/noteapp",noteRoutes)
 
 app.listen(port,()=>{
